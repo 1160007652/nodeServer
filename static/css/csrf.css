@@ -1,0 +1,8 @@
+a{
+    display: flex;
+    justify-content: center;
+    line-height: 3;
+    color: red;
+    font-size: 48px;
+    text-decoration: none;
+}

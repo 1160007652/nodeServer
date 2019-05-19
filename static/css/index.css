@@ -1,0 +1,15 @@
+p{
+    text-align: center;
+    font-size: 42px;
+}
+ul>li{
+    list-style: decimal;
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    line-height: 3;
+}
+a{
+    color: red;
+    text-decoration: none;
+}

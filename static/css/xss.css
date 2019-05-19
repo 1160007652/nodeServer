@@ -1,0 +1,21 @@
+img{
+    margin: 50px auto;
+}
+iframe{
+    width: 200px;
+    height: 80px;
+}
+
+a{
+    text-decoration: none;
+    font-size: 28px;
+    display: block;
+}
+
+.dxss{
+    width: 50%;
+    margin: 50px auto;
+}
+.form-control{
+    margin-bottom: 20px;
+}

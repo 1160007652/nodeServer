@@ -1,0 +1,15 @@
+{
+  "name": "mykoa",
+  "version": "1.0.0",
+  "description": "自创Koa, 学习nodeServer",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "mysql": "^2.17.1"
+  }
+}
